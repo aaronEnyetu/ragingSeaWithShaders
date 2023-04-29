@@ -26,7 +26,11 @@ const scene = new THREE.Scene()
 const waterGeometry = new THREE.PlaneGeometry(2, 2, 128, 128)
 
 // Material
-const waterMaterial = new THREE.ShaderMaterial()
+const waterMaterial = new THREE.ShaderMaterial({
+    vertexShader: waterVertexShader,
+    fragmentShader: waterFragmentShader
+})
+
 
 // Mesh
 const water = new THREE.Mesh(waterGeometry, waterMaterial)
