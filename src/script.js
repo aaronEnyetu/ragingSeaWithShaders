@@ -31,6 +31,7 @@ const waterMaterial = new THREE.ShaderMaterial({
     fragmentShader: waterFragmentShader,
     uniforms:
     {
+        uTime: { value: 0 },
         uBigWavesElevation: { value: 0.2 },
         uBigWavesFrequency: { value: new THREE.Vector2(4, 1.5) }
     }
@@ -97,6 +98,9 @@ const clock = new THREE.Clock()
 const tick = () =>
 {
     const elapsedTime = clock.getElapsedTime()
+
+    //Update Water
+    waterMaterial.uniforms.uTime.value = elapsedTime
 
     // Update controls
     controls.update()
